@@ -573,6 +573,8 @@
             }
 
             .hero-container {
+                min-height: 60vh;
+                max-height: 80vh;
                 border-radius: 16px;
             }            
             
