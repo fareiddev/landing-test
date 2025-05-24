@@ -578,6 +578,12 @@
                 min-width: 250px;
             }
 
+            .swiper-slide {
+                /* each slide now fills 90 % of the carousel track */
+                flex: 0 0 90%;
+                max-width: 90%;
+            }
+
             .projects-container {
                 padding: 0 15px;
             }
