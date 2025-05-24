@@ -103,32 +103,54 @@
                 let currentX = 0;
                 let isDragging = false;
 
+                // this.container.addEventListener('touchstart', (e) => {
+                //     startX = e.touches[0].clientX;
+                //     isDragging = true;
+                // });
+
+                //o3 Suggested Edit
                 this.container.addEventListener('touchstart', (e) => {
-                    startX = e.touches[0].clientX;
+                    startX   = e.touches[0].clientX;
+                    currentX = startX;               // <- initialise
                     isDragging = true;
                 });
 
                 this.container.addEventListener('touchmove', (e) => {
                     if (!isDragging) return;
-                    e.preventDefault(); // Prevent default to avoid scrolling [R1 Edit]
                     currentX = e.touches[0].clientX;
-                }, { passive: false }); // Set passive to false to allow preventDefault [R1 Edit]
+                });
 
-                this.container.addEventListener('touchend', () => {
+                // this.container.addEventListener('touchend', () => {
+                //     if (!isDragging) return;
+                //     isDragging = false;
+
+                //     const diffX = startX - currentX;
+                //     const threshold = 50;
+
+                //     if (Math.abs(diffX) > threshold) {
+                //         if (diffX > 0) {
+                //             this.nextSlide();
+                //         } else {
+                //             this.prevSlide();
+                //         }
+                //     }
+                // });
+
+                //o3 Suggested Edit
+                this.container.addEventListener('touchend', (e) => {
                     if (!isDragging) return;
                     isDragging = false;
 
-                    const diffX = startX - currentX;
+                    const endX  = e.changedTouches[0].clientX; // use the actual end point
+                    const diffX = startX - endX;
                     const threshold = 50;
 
                     if (Math.abs(diffX) > threshold) {
-                        if (diffX > 0) {
-                            this.nextSlide();
-                        } else {
-                            this.prevSlide();
-                        }
+                        diffX > 0 ? this.nextSlide() : this.prevSlide();
                     }
                 });
+
+
 
                 // Mouse drag support for desktop
                 let mouseStartX = 0;
