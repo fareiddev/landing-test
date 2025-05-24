@@ -110,8 +110,9 @@
 
                 this.container.addEventListener('touchmove', (e) => {
                     if (!isDragging) return;
+                    e.preventDefault(); // Prevent default to avoid scrolling [R1 Edit]
                     currentX = e.touches[0].clientX;
-                });
+                }, { passive: false }); // Set passive to false to allow preventDefault [R1 Edit]
 
                 this.container.addEventListener('touchend', () => {
                     if (!isDragging) return;
