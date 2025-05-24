@@ -569,6 +569,7 @@
 
         @media (max-width: 480px) {
             .hero {
+                padding: 10% 15px;
                 padding: 0 15px;
             }
 
