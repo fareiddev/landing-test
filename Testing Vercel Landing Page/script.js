@@ -108,7 +108,7 @@
                 //     isDragging = true;
                 // });
 
-                //o3 Suggested Edit
+                // o3 Suggested Edit
                 this.container.addEventListener('touchstart', (e) => {
                     startX   = e.touches[0].clientX;
                     currentX = startX;               // <- initialise
@@ -117,8 +117,10 @@
 
                 this.container.addEventListener('touchmove', (e) => {
                     if (!isDragging) return;
+                    e.preventDefault(); // R1 Edit
                     currentX = e.touches[0].clientX;
-                });
+                }, { passive: false }); //R1 Edit
+
 
                 // this.container.addEventListener('touchend', () => {
                 //     if (!isDragging) return;
