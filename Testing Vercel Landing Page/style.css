@@ -283,7 +283,13 @@
         .projects-slider {
             position: relative;
             margin-top: 50px;
-            overflow: hidden;
+            /*overflow: hidden;*/
+        }
+
+        /* make Swiper slides shrink to the width of the card */
+        .swiper-slide {
+            width: auto; /* allows variable‑width cards */
+            display: flex; /* keeps card centered vertically if taller */
         }
 
         .projects-container {
