@@ -47,6 +47,7 @@
         // Projects Slider Functionality
         /* Initialise Swiper */
         const swiper = new Swiper('.projects-swiper', {
+            rewind: true,
             slidesPerView: 1,
             spaceBetween: 20,
             breakpoints: {
