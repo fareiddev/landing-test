@@ -290,6 +290,7 @@
         .swiper-slide {
             width: auto; /* allows variable‑width cards */
             display: flex; /* keeps card centered vertically if taller */
+            justify-content: center;
         }
 
         .projects-container {

@@ -75,10 +75,3 @@
                 enabled: true,
             },
         });
-
-        // Initialize slider when DOM is loaded
-        let projectSlider;
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            projectSlider = new ProjectSlider();
-        });
